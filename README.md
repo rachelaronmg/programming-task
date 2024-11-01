@@ -21,14 +21,6 @@ This component includes:
 - Submit and Cancel button functionality
 - Validation rules for PIN (4 digits, not year of birth, not date of birth, not easy to guess)
 
-### Form (`form.tsx`)
-
-This component includes:
-
-- Input field for password (PIN)
-- Error handling for input validation
-- Submit and Cancel buttons
-
 ### Success Component (`SuccessComponent.tsx`)
 
 A simple component that displays a success message after PIN has been set successfully.
