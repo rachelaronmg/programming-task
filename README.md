@@ -6,8 +6,7 @@ This project is a React-based web application, using Next.js framework, focusing
 
 The project contains the following key files:
 
-- `components/CardFormComponent.tsx`: A form component for setting or confirming a PIN.
-- `pages/form.tsx`: Another form component, possibly for user authentication.
+- `components/CardFormComponent.tsx`: A form component for setting a PIN.
 - `components/SuccessComponent.tsx`: A success page displayed after successful PIN setting.
 
 ## Components
