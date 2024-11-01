@@ -1,13 +1,13 @@
 import React from "react";
-import CardForm from "./card_form";
+import CardFormComponent from "../components/CardFormComponent";
 
-export interface userProps {
+export interface UserProps {
   userName: string;
   date_of_birth: string;
 }
 
 const Dashboard = () => {
-  const userData: userProps = {
+  const userData: UserProps = {
     userName: "John Doe",
     date_of_birth: "10/07/1997",
   };
@@ -18,7 +18,7 @@ const Dashboard = () => {
         <h2 className="text-2xl font-semibold text-center text-gray-800">
           Welcome, {userData.userName}!
         </h2>
-        <CardForm user={userData} />
+        <CardFormComponent user={userData} />
       </div>
     </div>
   );

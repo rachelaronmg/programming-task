@@ -1,13 +1,15 @@
+import React from "react";
+
 import { NextPage } from "next";
 import { useState } from "react";
-import SuccessForm from "./success_form";
-import { userProps } from "./dashboard";
+import SuccessForm from "./SuccessComponent";
+import { UserProps } from "../pages/dashboard";
 
 interface FormProps {
-  user: userProps;
+  user: UserProps;
 }
 
-const CardForm: NextPage<FormProps> = ({ user }) => {
+const CardFormComponent: NextPage<FormProps> = ({ user }) => {
   const [errors, setErrors] = useState({
     pin: "",
     confirmPin: "",
@@ -41,6 +43,24 @@ const CardForm: NextPage<FormProps> = ({ user }) => {
         // 3. CAN'T BE THE DATE OF BIRTH (day and month)
         if (value === day + month) {
           error = "PIN can't be the date of birth";
+        }
+
+        // 4. cant be an easy pin
+        const easyPins = [
+          "1111",
+          "1234",
+          "0000",
+          "2222",
+          "3333",
+          "4444",
+          "5555",
+          "6666",
+          "7777",
+          "8888",
+          "9999",
+        ];
+        if (easyPins.includes(value)) {
+          error = "PIN is too easy to guess";
         }
       }
     }
@@ -101,7 +121,7 @@ const CardForm: NextPage<FormProps> = ({ user }) => {
 
         <div>
           <label
-            htmlFor="password"
+            htmlFor="pin"
             className="block text-sm font-medium text-gray-700"
           >
             New PIN
@@ -110,6 +130,7 @@ const CardForm: NextPage<FormProps> = ({ user }) => {
           <input
             type="password"
             name="pin"
+            id="pin"
             value={formData.pin}
             onChange={handleChange}
             className="block w-full p-2 mt-1 border-b  border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
@@ -121,14 +142,15 @@ const CardForm: NextPage<FormProps> = ({ user }) => {
 
         <div>
           <label
-            htmlFor="password"
+            htmlFor="confirmPin"
             className="block text-sm font-medium text-gray-700"
           >
-            Confrim PIN
+            Confirm PIN
           </label>
           <input
             type="password"
             name="confirmPin"
+            id="confirmPin"
             value={formData.confirmPin}
             onChange={handleChange}
             className="block w-full p-2 mt-1 border-b border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
@@ -168,4 +190,4 @@ const CardForm: NextPage<FormProps> = ({ user }) => {
   );
 };
 
-export default CardForm;
+export default CardFormComponent;
